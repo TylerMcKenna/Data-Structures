@@ -1,0 +1,162 @@
+\documentclass{homework}
+\author{Tashfeen, Ahmad}
+\class{CSCI 2114: Data Structures}
+% \date{\today}
+\title{Homework 1}
+\address{Oklahoma City University, Petree College of Arts \& Sciences, Computer Science}
+
+\usepackage{fontspec}
+\setmonofont[Scale=MatchLowercase]{Iosevka SS07}
+
+\begin{document} \maketitle
+
+\question Write a Java program that prints out one line of text to the
+console. It can be anything but ``Hello World!''
+
+\question Write a Java program that populates an array of size $n$
+with the first $n$ Fibonacci numbers. The program should print out the
+array as shown in figure \ref{exmp}. Here $n$ should be the first command line
+argument.
+
+\question Using the
+\href{https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes}{Sieve of
+  Eratosthenes}, populate a boolean array of size $n$ marking all the
+indices that are Prime numbers. Here $n$ should be the first command
+line argument.
+
+\begin{enumerate}
+  \item For debugging, have your program print all the prime numbers
+        less than a 100. You should get the following,
+        \[
+          2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47,
+          53, 59, 61, 67, 71, 73, 79, 83, 89, 97
+        \]
+  \item The program should print out at most the five largest
+        prime numbers it computed and the time (seconds) it took to
+        compute all the primes less than $n$. Here is a way to compute
+        seconds taken by a function call
+        \texttt{eratosthenes(toSieve)}.
+
+        \begin{lstlisting}[language=java]
+double startTime = System.nanoTime();
+eratosthenes(toSieve);
+double duration = System.nanoTime() - startTime;
+duration = duration / Math.pow(10, 9);
+\end{lstlisting}
+
+  \item With your program, calculate how long does it take (in seconds)
+        to compute all the 30 bit prime numbers. These are all primes less
+        than $n = 2^{30} = 1073741824$.
+
+  \item Can your implementation of the Sieve of Eratosthenes
+        compute all the 32 bit prime numbers? If yes, give the time it
+        takes or if it can not, then why not?
+\end{enumerate}
+
+\question Read all bytes in the file \href{https://tinyurl.com/24bvsnaf}{\texttt{half\_gaps.bin}}. You may
+use the function in code listing \ref{byte}.
+
+\lstinputlisting[
+  linerange={31-39},
+  language={java},
+  caption={Java function to read in a file's bytes (as signed).},
+  label=byte]
+{code/FourTashfeen.java}
+
+The function in code listing \ref{byte} reads in signed bytes. While
+this maybe suitable for some binary arrangements, we want the bytes to
+be unsigned. One way to achieve this is to just loop and use
+\href{https://tinyurl.com/2aw28b6l}{\texttt{Byte.toUnsignedLong(byte x)}}
+as seen in listing \ref{long}.
+
+\lstinputlisting[
+  linerange={9-12},
+  language={java},
+  caption={Converting Java signed bytes to unsigned longs.},
+  label=long]
+{code/FourTashfeen.java}
+
+Note that while we may also use
+\href{https://tinyurl.com/25w2e4wy}{\texttt{Byte.toUnsignedInt(byte x)}}
+to turn the signed bytes into unsigned ints instead of longs, we
+prefer longs here to avoid overflows in future computations.
+
+Compute the array of longs' cumulative sum, i. e.,
+\[
+  \curl{x_i \in \mathtt{cumsum}(x) : x_i = \sum_{k=1}^{i} x_k}
+\]
+Now multiply each of the sums with 2 and then add a 3.
+\[
+  \curl{x_i \in \mathtt{cumsum}(x) : y_i = 2x_i+3 = 2\paren{\sum_{k=1}^{i} x_k}+3}
+\]
+\begin{enumerate}
+  \item Print out the first fifteen and the last five elements of this final
+        array.
+  \item Time this program (the reading of bytes, the cumulative sum
+        computation and the doubling with adding a three) and print the
+        result in seconds.
+  \item Do you recognise the printed numbers? What will these be
+        if we further added a 2 and a 3 to them?
+\end{enumerate}
+
+\question Break the Affine cipher. Your professor encrypted a plain
+text file called \texttt{plain.txt} using the program given in listing
+\ref{cipher}.
+
+\lstinputlisting[
+  language={java},
+  caption={An Affine cipher in Java.},
+  label=cipher]
+{code/FiveTashfeen.java}
+
+He then redirected the output to a cipher file called
+\href{https://tinyurl.com/24pjud2t}{\texttt{cipher.txt}}.
+
+\begin{enumerate}
+  \item Use the cipher text file and the code in listing
+        \ref{cipher} to recover the plain text. \textit{Hint}: $7^{-1} = 55 \mod 2^7$.
+  \item What should the $2^7$ tell you about the text encoding of
+        the original plain text file?
+\end{enumerate}
+
+\section{Example Executions}
+
+Figure \ref{exmp} shows how the output of the code for the first three
+questions should look like on the standard out. All your programs must
+compile/run from the command line using \texttt{javac} and
+\texttt{java} commands, e. g.,
+
+\begin{verbatim}
+javac Program.java
+java Program
+\end{verbatim}
+
+\img<exmp>[0.65]
+{Example execution of the code for the first three questions.}
+{media/example.png}
+
+\section{Submission Instructions}
+
+Please \textit{replace the professor's last name} with yours wherever appropriate.
+
+\begin{itemize}
+  \item Submit \texttt{OneTashfeen.java},
+        \texttt{TwoTashfeen.java}, \texttt{ThreeTashfeen.java},
+        \texttt{FourTashfeen.java}, \texttt{FiveTashfeen.java} and
+        \texttt{solTashfeen.pdf} at the online classroom.
+
+  \item The files \texttt{OneTashfeen.java},
+        \texttt{TwoTashfeen.java}, \texttt{ThreeTashfeen.java},
+        \texttt{FourTashfeen.java} and \texttt{FiveTashfeen.java} should
+        contain the Java source code for the relevant questions. E. g.,
+        \texttt{OneTashfeen.java} should contain the code that pertains to
+        the first question, \texttt{TwoTashfeen.java} to the second and so
+        forth.
+
+  \item The PDF file \texttt{solTashfeen.pdf} should contain
+        written answers to questions that ask for them as well as a
+        screenshot similar to the one in figure \ref{exmp} that
+        demonstrates your code being compiled and ran.
+\end{itemize}
+
+\end{document}
