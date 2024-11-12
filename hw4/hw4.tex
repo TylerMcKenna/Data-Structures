@@ -1,0 +1,49 @@
+\documentclass{homework}
+\author{Tashfeen, Ahmad}
+\class{CSCI 2114: Data Structures}
+\title{Homework 4}
+\address{Oklahoma City University, Petree College of Arts \& Sciences, Computer Science}
+
+\begin{document} \maketitle
+
+Recall from class the runtimes given in table \ref{runtime}.
+
+\tbl<runtime>{Asymptotic runtime complexities for array lists and linked lists} {
+Data Structure\textbackslash Operation            & Append  & Random Access \\
+Array List  & $\O(n)$ & $\O(1)$       \\
+Linked List & $\O(1)$ & $\O(n)$       \\
+}
+
+In this assignment for each of the array list and linked list, we'll record times for Java's,
+
+\begin{enumerate}
+    \item \href{https://docs.oracle.com/javase/8/docs/api/java/util/List.html#add-E-}{List.add(E e)}
+    \item \href{https://docs.oracle.com/javase/8/docs/api/java/util/List.html#get-int-}{List.get(int index)}
+\end{enumerate}
+
+Note that both of the Java's \texttt{LinkedList} and \texttt{ArrayList} implement the above \texttt{Link} interface.
+
+\question\label{plot} Finish implementing the Java class \href{https://tashfeen.org/raw/share/ds/ListExperiment.java}{\texttt{ListExperiment}}. Once fully implemented, this class should give you two comma separated files (CSV) with rows corresponding with nanoseconds taken to append the $i^\text{th}$ element or perform a binary search in a list of size $2^i$. Plot each row in these CSV files against their index using your favourite plotting utility. You may use this \href{https://tashfeen.org/raw/share/ds/plot_list.py}{Python script} (make sure you set the appropriate variables) if you want. Give the plots.
+
+\question Analyse the plots in question \ref{plot}. Do they confirm or overrule what we know about the runtimes linked and array lists? Discuss.
+
+\question Draw the \href{https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle}{Sierpinksi's triangle}.
+  \begin{enumerate}
+      \item Finish implementing \href{https://tashfeen.org/raw/share/ds/CoordinateList.java}{\texttt{CoordinateList.java}}
+      \item Finish implementing \href{https://tashfeen.org/raw/share/ds/Sierpinski.java}{\texttt{Sierpinski.java}}
+  \end{enumerate}
+Give a screenshot of your JFrame with the Sierpinksi's triangle drawn.
+
+\section*{Submission Instructions}
+
+\begin{enumerate}
+    \item Turn in a PDF containing any plots, figures and/or answers from the homework.
+    \item Turn in your,
+    \begin{enumerate}[label=\roman*)]
+        \item \texttt{ListExperiment.java}
+        \item \texttt{CoordinateList.java}
+        \item \texttt{Sierpinski.java}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

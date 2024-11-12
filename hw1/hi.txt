@@ -1,0 +1,16 @@
+affine cipher is a ceasar cipher with a big key it's linear just moves back in forth
+
+find inverse of function
+
+function (char)mod(55 * (x-3)
+
+
+128 bits to show all ascii values - 128 = 2^7 encrypting all 128 ascii characters
+
+55^-1(y)+3mod(m=2^7)
+
+7y+3mod(2^7)
+
+
+
+WORST CASE n
